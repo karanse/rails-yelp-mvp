@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant = Restaurant.new
   end
 
    # POST /restaurants
