@@ -1,0 +1,12 @@
+<%= render "restaurant", restaurant:@restaurant %>
+
+<br>
+<div class="reviews">
+  <strong>Number of reviews: <%= @restaurant.reviews.count %></strong>
+  <strong>Reviews</strong>
+  <%= render "list", reviews:@restaurant.reviews %>
+</div>
+
+<div class="btn btn-info">
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+</div>

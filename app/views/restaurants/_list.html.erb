@@ -1,0 +1,6 @@
+<ul class="list-group">
+  <% reviews.each do |review| %>
+    <li class="list-group-item"><%= "#{review.content}"%>
+    <strong><%=  "(#{review.rating})" %></strong></li>
+  <% end %>
+</ul>
