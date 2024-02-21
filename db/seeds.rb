@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "Cleaning the db..."
+Restaurant.destroy_all
+
+puts "Creating sample db..."
+
+10.times do
+    restaurant = Restaurant.create!(name: Faker::Restaurant.name,
+                                    address: Faker::Address.street_address,
+                                    phone_number: Faker::PhoneNumber.phone_number,
+                                    category: ["chinese", "italian", "japanese", "french", "belgian"].sample)
+    10.times do
+      review = Review.new(content: Faker::Movie.quote,
+                          rating: rand(0..5))
+    review.restaurant = restaurant
+    review.save!
+    end
+end
+
+puts "DB created!"
